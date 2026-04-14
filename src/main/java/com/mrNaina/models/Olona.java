@@ -1,10 +1,14 @@
 package com.mrNaina.models;
 
-import javax.annotation.processing.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 
 @Entity
 public class Olona {
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
