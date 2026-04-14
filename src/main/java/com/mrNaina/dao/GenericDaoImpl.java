@@ -1,5 +1,9 @@
 package com.mrNaina.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 public class GenericDaoImpl<T> implements GenericDao<T> {
     
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("myAppPU");
