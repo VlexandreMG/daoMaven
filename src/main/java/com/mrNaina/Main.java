@@ -15,7 +15,7 @@ public class Main {
         // olonadao.save(olona);
 
     //FindById
-        Olona foundOlona = olonadao.findById(Olona.class, 13);
+        Olona foundOlona = olonadao.findById(Olona.class, 14);
         if (foundOlona != null) {
             System.out.println("Found Olona: " + foundOlona.getNom());
         } else {
@@ -23,8 +23,11 @@ public class Main {
         }
 
     //Update
-        foundOlona.setNom("updated name");
-        olonadao.update(foundOlona);
+        // foundOlona.setNom("updated name");
+        // olonadao.update(foundOlona);
+
+    //Delete
+        olonadao.delete(foundOlona);
     }
 
    
