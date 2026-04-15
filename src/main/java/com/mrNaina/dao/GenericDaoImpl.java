@@ -28,5 +28,4 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
         }
     }
 
-
 }
