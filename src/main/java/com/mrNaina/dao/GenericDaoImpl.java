@@ -28,4 +28,16 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
         }
     }
 
+    @Override 
+    public T findById(Class<T> clazz, int id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(clazz, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }

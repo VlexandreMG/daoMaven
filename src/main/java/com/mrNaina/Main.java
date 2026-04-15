@@ -6,13 +6,20 @@ import com.mrNaina.dao.GenericDaoImpl;
 
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello World!");
+    //System.out.println("Hello World!");
         GenericDao<Olona> olonadao = new GenericDaoImpl<>();
-
-        Olona olona = new Olona();
-        olona.setNom("test");
-        olonadao.save(olona);
-
         
+    //Save 
+        // Olona olona = new Olona();
+        // olona.setNom("test");
+        // olonadao.save(olona);
+
+    //FindById
+        Olona foundOlona = olonadao.findById(Olona.class, 13);
+        if (foundOlona != null) {
+            System.out.println("Found Olona: " + foundOlona.getNom());
+        } else {
+            System.out.println("Olona not found.");
+        }
     }
 }
