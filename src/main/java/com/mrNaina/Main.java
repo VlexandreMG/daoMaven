@@ -21,5 +21,11 @@ public class Main {
         } else {
             System.out.println("Olona not found.");
         }
+
+    //Update
+        foundOlona.setNom("updated name");
+        olonadao.update(foundOlona);
     }
+
+   
 }
