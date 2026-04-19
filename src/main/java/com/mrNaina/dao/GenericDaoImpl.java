@@ -3,6 +3,8 @@ package com.mrNaina.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+import java.util.List;
 
 public class GenericDaoImpl<T> implements GenericDao<T> {
     
@@ -66,6 +68,21 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
         } catch (Exception e) {
             if (em.getTransaction().isActive()) em.getTransaction().rollback();
             e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<T> findAll(Class<T> clazz) {
+        EntityManager em = getEntityManager();
+        try {
+            String jpql = "SELECT e FROM "+ clazz.getSimpleName() + " e";
+            TypedQuery<T> query = em.createQuery(jpql, clazz);
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         } finally {
             em.close();
         }
