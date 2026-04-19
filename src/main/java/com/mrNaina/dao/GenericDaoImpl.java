@@ -78,6 +78,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
         EntityManager em = getEntityManager();
         try {
             String jpql = "SELECT e FROM "+ clazz.getSimpleName() + " e";
+            // le e natao allias parce que hibernate a pense en collection d'objets et pas en table relationnelle
             TypedQuery<T> query = em.createQuery(jpql, clazz);
             return query.getResultList();
         } catch (Exception e) {
